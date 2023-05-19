@@ -13,13 +13,11 @@ const crearBoton = (texto, handler) => {
 
 const agregarNumero = (numero) => {
   if (operador === "") {
-    console.log("entra num1")
     num1 += numero;
     document.getElementById("resultado").value = num1;
   } else {
-    console.log("entra num2")
     num2 += numero;
-    document.getElementById("resultado").value = num1+operador+num2;
+    document.getElementById("resultado").value = num1 + operador + num2;
   }
 };
 
@@ -77,21 +75,25 @@ const calcular = () => {
 const setOperador = (op) => {
   operador = op;
   decimal = false;
-  document.getElementById("resultado").value = num1+operador
+  document.getElementById("resultado").value = num1 + operador;
 };
 
 const handlerClickBoton = (event) => {
   const valorBoton = event.target.textContent;
-  console.log("valor del boton presionado",valorBoton)
 
   if (valorBoton === "=") {
     if (num1 !== "" && num2 !== "" && operador !== "") {
-      console.log("entrando")
+      console.log("entrando");
       calcular();
     }
   } else if (valorBoton === ".") {
     convertirEnDecimal();
-  } else if (valorBoton === "+" || valorBoton === "-" || valorBoton === "*" || valorBoton === "/") {
+  } else if (
+    valorBoton === "+" ||
+    valorBoton === "-" ||
+    valorBoton === "*" ||
+    valorBoton === "/"
+  ) {
     setOperador(valorBoton);
   } else {
     agregarNumero(valorBoton);
@@ -106,16 +108,16 @@ const limpiarPantalla = () => {
   document.getElementById("resultado").value = "";
 };
 
-const borrarElemento = () => {
-  console.log("borrar elemento")
-}
-
 //paneles
 const iniciarCalculadora = () => {
   const app = document.getElementById("app");
-  const container = document.createElement("section");
+  const container = document.createElement("main");
   container.classList.add("container");
   app.appendChild(container);
+  const iconoTema = document.createElement("i");
+  iconoTema.classList.add("fa-solid");
+  iconoTema.classList.add("fa-circle-half-stroke");
+  container.appendChild(iconoTema);
   const titulo = document.createElement("h1");
   titulo.classList.add("titulo");
   titulo.textContent = "Calculadora Básica";
@@ -128,16 +130,14 @@ const iniciarCalculadora = () => {
   const panelBotones = document.createElement("section");
   panelBotones.classList.add("panelBotones");
   container.appendChild(panelBotones);
-  const botonesBorrado = document.createElement("article");
-  botonesBorrado.classList.add("botonesBorrado");
-  panelBotones.appendChild(botonesBorrado);
+  const botonBorrado = document.createElement("article");
+  botonBorrado.classList.add("botonBorrado");
+  panelBotones.appendChild(botonBorrado);
   const numerosyFunciones = document.createElement("section");
   numerosyFunciones.classList.add("numerosyFunciones");
   panelBotones.appendChild(numerosyFunciones);
   const botonLimpiar = crearBoton("C", limpiarPantalla);
-  botonesBorrado.appendChild(botonLimpiar);
-  const borrar = crearBoton("DEL", borrarElemento)
-  botonesBorrado.appendChild(borrar);
+  botonBorrado.appendChild(botonLimpiar);
 
   const botones = [
     "7",

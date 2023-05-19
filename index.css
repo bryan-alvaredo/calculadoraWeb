@@ -6,4 +6,20 @@
 #app .container {
   width: 20rem;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+#app .container i {
+  align-self: flex-end;
+}
+#app .container .titulo {
+  text-align: center;
+}
+#app .container #resultado {
+  border-radius: 1rem;
+  padding: 0.5rem;
+  text-align: right;
+}
+#app .container .panelBotones .botonBorrado .C {
+  align-self: flex-end;
 }/*# sourceMappingURL=index.css.map */

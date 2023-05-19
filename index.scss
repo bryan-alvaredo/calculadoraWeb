@@ -12,5 +12,37 @@
   .container {
     width: 20rem;
     margin: auto;
+    @include flexBox(column);
+
+    i {
+      align-self: flex-end;
+    }
+
+    .titulo {
+      text-align: center;
+    }
+
+    #resultado {
+      border-radius: 1rem;
+      padding: 0.5rem;
+      text-align: right;
+    }
+
+    .panelBotones {
+
+      .botonBorrado {
+
+        .C {
+          align-self: flex-end;
+        }
+      }
+    }
+
+    .numerosyFunciones {
+
+      button {
+
+      }
+    }
   }
 }
