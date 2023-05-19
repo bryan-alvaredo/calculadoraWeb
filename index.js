@@ -19,7 +19,7 @@ const agregarNumero = (numero) => {
   } else {
     console.log("entra num2")
     num2 += numero;
-    document.getElementById("resultado").value = num2;
+    document.getElementById("resultado").value = num1+operador+num2;
   }
 };
 
@@ -77,6 +77,7 @@ const calcular = () => {
 const setOperador = (op) => {
   operador = op;
   decimal = false;
+  document.getElementById("resultado").value = num1+operador
 };
 
 const handlerClickBoton = (event) => {
