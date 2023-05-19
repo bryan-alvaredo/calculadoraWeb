@@ -1,0 +1,9 @@
+#app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#app .container {
+  width: 20rem;
+  margin: auto;
+}/*# sourceMappingURL=index.css.map */

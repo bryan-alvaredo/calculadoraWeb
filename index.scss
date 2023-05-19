@@ -1,0 +1,16 @@
+///FUNCIONES
+@mixin flexBox($direction) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+///STYLES
+#app {
+  @include flexBox(column);
+  width: 100%;
+
+  .container {
+    width: 20rem;
+    margin: auto;
+  }
+}
