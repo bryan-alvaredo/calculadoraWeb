@@ -1,6 +1,9 @@
 body {
   margin: 0;
   background-image: url("./img/fondoClaroPrincipal.png");
+  background-size: contain;
+  transition-duration: 0.4s;
+  transition-property: background-image;
 }
 body #app {
   display: flex;
@@ -18,23 +21,39 @@ body #app .container {
   border: 0.2rem black solid;
   border-radius: 1.5rem;
   background-color: rgba(255, 255, 255, 0.589);
+  transition-duration: 0.4s;
+  transition-property: border-color background-color;
 }
 body #app .container i {
+  color: black;
   align-self: flex-end;
   font-size: 1.6rem;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  transition-property: color;
 }
 body #app .container .titulo {
+  color: black;
   text-align: center;
   margin: 0;
   font-size: 2.5rem;
   padding: 1rem 0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 100;
+  transition-duration: 0.4s;
+  transition-property: color;
 }
 body #app .container #resultado {
+  background-color: white;
+  color: black;
+  border-color: black;
   border-radius: 1rem;
   padding: 0.5rem;
   text-align: right;
   height: 2.75rem;
   font-size: 2rem;
+  transition-duration: 0.4s;
+  transition-property: background-color color border-color;
 }
 body #app .container .panelBotones {
   display: flex;
@@ -48,13 +67,15 @@ body #app .container .panelBotones .botonBorrado {
   justify-content: space-between;
 }
 body #app .container .panelBotones .botonBorrado button {
+  color: black;
   width: 11rem;
   height: 4rem;
   font-size: 2.3rem;
   border-radius: 1rem;
+  border-width: 0;
   background-color: rgb(255, 92, 92);
-  transition-property: background-color;
   transition-duration: 0.4s;
+  transition-property: background-color color;
 }
 body #app .container .panelBotones .botonBorrado button:hover {
   background-color: rgb(255, 122, 122);
@@ -62,6 +83,18 @@ body #app .container .panelBotones .botonBorrado button:hover {
 }
 body #app .container .panelBotones .botonBorrado button:active {
   background-color: rgb(240, 68, 68);
+}
+body #app .container .panelBotones .botonBorrado .darkButtonDel {
+  background-color: rgb(30, 30, 30);
+  color: rgb(255, 0, 0);
+  transition-duration: 0.4s;
+  transition-property: background-color color;
+}
+body #app .container .panelBotones .botonBorrado .darkButtonDel:hover {
+  background-color: rgb(49, 49, 49);
+}
+body #app .container .panelBotones .botonBorrado .darkButtonDel:active {
+  background-color: black;
 }
 body #app .container .numerosyFunciones {
   display: flex;
@@ -74,9 +107,11 @@ body #app .container .numerosyFunciones button {
   height: 4rem;
   font-size: 2.3rem;
   background-color: silver;
+  color: black;
   border-radius: 1rem;
-  transition-property: background-color;
+  border-width: 0;
   transition-duration: 0.4s;
+  transition-property: background-color color;
 }
 body #app .container .numerosyFunciones button:hover {
   background-color: rgb(219, 219, 219);
@@ -84,4 +119,64 @@ body #app .container .numerosyFunciones button:hover {
 }
 body #app .container .numerosyFunciones button:active {
   background-color: rgb(158, 158, 158);
+}
+body #app .container .numerosyFunciones .darkNumeros {
+  color: silver;
+  background-color: rgb(30, 30, 30);
+  transition-duration: 0.4s;
+  transition-property: background-color color;
+}
+body #app .container .numerosyFunciones .darkNumeros:hover {
+  background-color: rgb(49, 49, 49);
+}
+body #app .container .numerosyFunciones .darkNumeros:active {
+  background-color: black;
+}
+body #app .container .numerosyFunciones .igual {
+  color: black;
+  background-color: rgb(90, 219, 58);
+}
+body #app .container .numerosyFunciones .igual:hover {
+  background-color: rgb(122, 231, 95);
+  cursor: pointer;
+}
+body #app .container .numerosyFunciones .igual:active {
+  background-color: rgb(51, 211, 11);
+}
+body #app .container .numerosyFunciones .darkIgual {
+  color: rgb(47, 235, 0);
+  background-color: rgb(30, 30, 30);
+  transition-duration: 0.4s;
+  transition-property: color background-color;
+}
+body #app .container .numerosyFunciones .darkIgual:hover {
+  background-color: rgb(49, 49, 49);
+}
+body #app .container .numerosyFunciones .darkIgual:active {
+  background-color: black;
+}
+body #app .container .numerosyFunciones .operador {
+  color: black;
+  background-color: rgb(39, 169, 255);
+  transition-duration: 0.4s;
+  transition-property: background-color color;
+}
+body #app .container .numerosyFunciones .operador:hover {
+  background-color: rgb(97, 190, 252);
+  cursor: pointer;
+}
+body #app .container .numerosyFunciones .operador:active {
+  background-color: rgb(0, 136, 226);
+}
+body #app .container .numerosyFunciones .darkOperador {
+  color: rgb(0, 153, 255);
+  background-color: rgb(30, 30, 30);
+  transition-duration: 0.4s;
+  transition-property: color background-color;
+}
+body #app .container .numerosyFunciones .darkOperador:hover {
+  background-color: rgb(49, 49, 49);
+}
+body #app .container .numerosyFunciones .darkOperador:active {
+  background-color: black;
 }/*# sourceMappingURL=index.css.map */

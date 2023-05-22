@@ -2,10 +2,17 @@ let operador = "";
 let num1 = "";
 let num2 = "";
 let decimal = false;
+let modoOscuro = true;
 
 const crearBoton = (texto, handler) => {
   const boton = document.createElement("button");
-  boton.classList.add(texto);
+  if (texto === "/" || texto === "*" || texto === "+" || texto === "-") {
+    boton.classList.add("operador");
+  } else if (texto === "=") {
+    boton.classList.add("igual");
+  } else {
+    boton.classList.add(texto);
+  }
   boton.textContent = texto;
   boton.addEventListener("click", handler);
   return boton;
@@ -121,6 +128,59 @@ const borrarCaracter = () => {
   }
 };
 
+const tema = () => {
+  const botones = document.querySelectorAll("button");
+  if (modoOscuro) {
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("./img/fondoOscuroPrincipal.png")`;
+    document.querySelector("main").style.borderColor = "white";
+    document.querySelector("main").style.backgroundColor =
+      "rgb(124 124 124 / 33%)";
+    document.querySelector("i").style.color = "white";
+    document.querySelector("h1").style.color = "white";
+    document.querySelector("input").style.backgroundColor = "black";
+    document.querySelector("input").style.color = "silver";
+    document.querySelector("input").style.borderColor = "silver";
+    botones.forEach((boton) => {
+      if (boton.className.includes("operador")) {
+        boton.classList.toggle("darkOperador");
+      } else if (boton.className.includes("igual")) {
+        boton.classList.toggle("darkIgual");
+      } else if (boton.className.includes("borrar")) {
+        boton.classList.toggle("darkButtonDel");
+      } else {
+        boton.classList.toggle("darkNumeros");
+      }
+    });
+    modoOscuro = !modoOscuro;
+  } else {
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("./img/fondoClaroPrincipal.png")`;
+    document.querySelector("main").style.borderColor = "black";
+    document.querySelector("main").style.backgroundColor =
+      "rgba(255, 255, 255, 0.589)";
+    document.querySelector("i").style.color = "black";
+    document.querySelector("h1").style.color = "black";
+    document.querySelector("input").style.backgroundColor = "white";
+    document.querySelector("input").style.color = "black";
+    document.querySelector("input").style.borderColor = "black";
+    botones.forEach((boton) => {
+      if (boton.className.includes("operador")) {
+        boton.classList.toggle("darkOperador");
+      } else if (boton.className.includes("igual")) {
+        boton.classList.toggle("darkIgual");
+      } else if (boton.className.includes("borrar")) {
+        boton.classList.toggle("darkButtonDel");
+      } else {
+        boton.classList.toggle("darkNumeros");
+      }
+    });
+    modoOscuro = !modoOscuro;
+  }
+};
+
 //paneles
 const iniciarCalculadora = () => {
   const app = document.getElementById("app");
@@ -130,6 +190,7 @@ const iniciarCalculadora = () => {
   const iconoTema = document.createElement("i");
   iconoTema.classList.add("fa-solid");
   iconoTema.classList.add("fa-circle-half-stroke");
+  iconoTema.addEventListener("click", tema);
   container.appendChild(iconoTema);
   const titulo = document.createElement("h1");
   titulo.classList.add("titulo");
@@ -150,8 +211,10 @@ const iniciarCalculadora = () => {
   numerosyFunciones.classList.add("numerosyFunciones");
   panelBotones.appendChild(numerosyFunciones);
   const botonLimpiar = crearBoton("C", limpiarPantalla);
+  botonLimpiar.classList.add("borrar");
   botonBorrado.appendChild(botonLimpiar);
   const borrar = crearBoton("DEL", borrarCaracter);
+  borrar.classList.add("borrar");
   botonBorrado.appendChild(borrar);
 
   const botones = [
