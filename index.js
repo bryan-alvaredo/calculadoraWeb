@@ -108,6 +108,19 @@ const limpiarPantalla = () => {
   document.getElementById("resultado").value = "";
 };
 
+const borrarCaracter = () => {
+  if (num2 !== "" && operador !== "") {
+    num2 = num2.slice(0, -1);
+    document.getElementById("resultado").value = num1 + operador + num2;
+  } else if (operador !== "") {
+    operador = "";
+    document.getElementById("resultado").value = num1;
+  } else if (num1 !== "") {
+    num1 = num1.slice(0, -1);
+    document.getElementById("resultado").value = num1;
+  }
+};
+
 //paneles
 const iniciarCalculadora = () => {
   const app = document.getElementById("app");
@@ -138,6 +151,8 @@ const iniciarCalculadora = () => {
   panelBotones.appendChild(numerosyFunciones);
   const botonLimpiar = crearBoton("C", limpiarPantalla);
   botonBorrado.appendChild(botonLimpiar);
+  const borrar = crearBoton("DEL", borrarCaracter);
+  botonBorrado.appendChild(borrar);
 
   const botones = [
     "7",
