@@ -90,7 +90,6 @@ const handlerClickBoton = (event) => {
 
   if (valorBoton === "=") {
     if (num1 !== "" && num2 !== "" && operador !== "") {
-      console.log("entrando");
       calcular();
     }
   } else if (valorBoton === ".") {
